@@ -1,0 +1,68 @@
+java.lang 包
+String类和StringBuffer类
+String类（不可变对象，修改时会创建一个新的对象）
+//第一种创建字符串方式
+  String str1;
+  str1="Hello World!"；
+//第二种创建字符串方式
+  String str2="Hello World!"；
+String类常用方法
+class Test{
+  public static void main(String[] args){
+      //定义字符串
+      String str1="Hello"；
+      String str2=""；
+      String str3=null；（没有分配内存空间，不能计算其长度）
+  //length()方法，获取一个字符串长度
+      int 11=str1.lenght();（长度为5）
+      int 12=str2.lenght();(长度为0)
+   //contact()将指定字符串连接到此字符串的结尾
+      String str1="Hello"；
+      String str2="world"；
+      String str3=str1.contact(str2);(Helloworld)
+   //valueOf()将指定值转化为字符串，常用于数字类型与字符串类型的相互转换
+      int a=100;
+      int b=2;
+          //将整型变量转换为字符串，然后进行连接（1002）
+      String str1=String.valueOf(a)+String.valueOf(b);
+         //使用contact()方法来连接（1002）
+       String str2=String.valueOf(a).cotact(String.valueOf(b));
+    //subString()返回一个新的字符串，是此字符串的子字符串
+       String str1="Mstanford"
+       String str2=str1.subString(2);(tanford)
+       String str2=str1.subString(2,4);(ta)
+    //equals(),判断对象是否相等
+       String str1=new String("hello");
+       String str2=new String("hello");
+              //"=="判断引用地址是否相等
+        if(str1==str2){
+          System.out.println("引用相等");
+        }
+             //判断实际对象是否相等
+        if(str1.equals(str2)){
+          System.out.println("
+          值相等");
+        }
+          
+  
+  }
+
+
+}  
+
+
+StringBuffer类（可变对象，修改时不会重新创建对象）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
