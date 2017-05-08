@@ -1,11 +1,13 @@
 java.lang 包
-String类和StringBuffer类
-String类（不可变对象，修改时会创建一个新的对象）
+------------------------------------String类和StringBuffer类----------------------------------------------------
+String类（String类的对象是不可变对象，修改时会创建一个新的对象）
 //第一种创建字符串方式
   String str1;
   str1="Hello World!"；
 //第二种创建字符串方式
   String str2="Hello World!"；
+ //第三种创建字符串方式(使用new关键字创建)
+  String str2=new String("Hello World!")；
 String类常用方法
 class Test{
   public static void main(String[] args){
@@ -51,18 +53,98 @@ class Test{
 }  
 
 
-StringBuffer类（可变对象，修改时不会重新创建对象）
+StringBuffer类（StringBuffer类的对象可变对象，修改时不会重新创建对象）
 
+class Test{
+  public static void main(String[] args){
+  /**
+    创建StringBuffer对象
+*/
+      //空的字符串常量，默认长度为16
+      StringBuffer str1=new StringBuffer();
+      //赋值错误，不能超过16位
+      //str1="默认的StringBuffer对象长度为16，若超过16，则赋值失败"
+      //空字符串长度为20，赋值时长度不能超过20
+      StringBuffer str2=new StringBuffer(20);
+      //初始化为Mstanford
+      StringBuffer str3=new StringBuffer("Mstanford");
+ /**
+    StringBuffer类常用方法
+*/
+         StringBuffer sb=new StringBuffer("Mstanford");
+     //append()追加字符串
+        sb.append("123");
+        System.out.println(sb);   (Mstanford123)
+     //insert()在指定位置插入字符串
+          //在第三个位置插入123，位置下标从0开始
+        sb.insert(2,"123")
+        System.out.println(sb);   (Ms123tanford)
+     
+      }
+} 
+---------------------------包装类--------------------------------------------------
+基本数据类型byte   bollean    short     char     int     long      float     double
+包装类     Byte   Bollean     Short    Character Integer Long     Float      Double
 
-
-
-
-
-
-
-
-
-
-
-
+class Test{
+  public static void main(String[] args){
+  /**
+    int与Integer之间的转换
+*/
+     int n=10;
+     Integer in=new Integer(100);
+    //将int类型转为Integer类型
+    Integer in1=new Integer(n);
+    //将Integer类型转为int类型
+    int m=in.intValue();
+      System.out.println(in1);(10)
+      System.out.println(m);(100)
+      //JDK15后引入自动装箱语法，可以自动转换
+          //将int类型转为Integer类型
+             int m=12;
+             Integer in=m;
+          //将Integer类型转为int类型
+             int n=in;
+    /**
+    使用Integer类的parseInt()方法将数字字符串转化为整型
+*/
+    //定义两个自字符串
+     String str1="123";
+     String str1="10";
+     //转化为整型
+     int a=Integer.parseInt(str1);
+     int b=Integer.parseInt(str2);
+      System.out.println(a+b);(123)
+     /**
+    使用Integer类的toString()方法将包装类转换为字符串型
+*/
+     Integer a=new Integer(10);
+     Integer b=new Integer(12);
+     //toString()是静态方法，可以通过类名来访问
+     String s1=Integer.toString(a);
+     String s2=Integer.toString(b);
+      System.out.println(s1+s2);(1012)
+      
+      }
+} 
+------------------------------Math类---------------------------------
+class Test{
+  public static void main(String[] args){
+      //abs()返回绝对值
+      System.out.println(Math.abs(-12));(12)
+      //round()返回四舍五入值
+      System.out.println(Math.round(3.3));（3）
+      System.out.println(Math.round(-3.3));（-3）
+      //max(),min()返回两个参数额较大或较小值
+      System.out.println(Math.max(5,9));（9）
+      System.out.println(Math.min(5,9));（5）
+      //返回自然对数E与圆周率PI
+      System.out.println(Math.E);（2.7182）
+      System.out.println(Math.PI);（3.1415）
+      //random()返回10~20随机数
+      System.out.println((int)(Math.random()*10+10));
+      //exp()返回自然对数的幂
+        System.out.println(Math.exp(3));(20.0855)
+      }
+} 
 
