@@ -1,0 +1,139 @@
+--------------------Date类---------------------------------------
+import java.util.Date;
+class Test{
+  public static void main(String[] args){
+  //实例化date对象
+  Date date=new date();
+  //返回的日期格式并非中国日期格式 Mon Feb 01 17:22:12 CST 2017
+  System.out.println("当前的时间为"+date);
+  }
+
+}
+--------------SimpleDateFormat类---------------------------------
+import java.util.Date;
+import java.text.SimpleDateFormat;
+class Test{
+  public static void main(String[] args){
+  //实例化date对象
+  Date date=new date();
+  //自定义字符串类型格式
+      //“时”大写是表示24小时制，小写是12小时制,"月"必须大写
+      //常用的格式化字符串有：yyyy-MM-dd HH:mm:ss;  yyyy/MM/dd HH:mm:ss;   yyyyMMddHHmmss
+  String format1="yyyy年MM月dd日HH时mm分ss秒"；
+  //实例化sdf对象
+  SimpleDateFormat sdf=new SimpleDateFormat(format1);
+  //转化为指定格式的字符串，format()方法
+  String currentDate=sdf.format(date);
+  System.out.println("当前的时间为"+currentDate);
+  //当前时间为2017年5月13日13时21分12秒
+  }
+  /**
+   常用的时间格式化格式
+  */
+  import java.util.Date;
+import java.text.SimpleDateFormat;
+class Test{
+  public static void main(String[] args){
+  //实例化date对象
+  Date date=new date();
+  SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+  System.out.println("当前的时间为"+sdf.format(date));
+  //当前时间为2017年5月13日13时21分12秒
+  }
+  
+   /**
+      将字符串转换成时间类型
+  */
+  import java.util.Date;
+import java.text.SimpleDateFormat;
+class Test{
+  public static void main(String[] args){
+  //用户输入的时间
+  String brithday="1995-12-12";
+  //格式化标准
+  SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+  //parse()方法，用于将字符串类型转换成Date类型
+  Date d=sdf.parse(birthday);
+  System.out.println("时间转换为"+d);
+  }
+  
+ ----------------------Calendar类----------------------------------
+ //Date可以获取时间，但不能根据用户的需要灵活地设置或获取时间
+ //java.util.Calendar类是抽象类，不可以被实例化，只能getInstance()方法返回一个Calendar对象
+ 
+ /*
+  getTime()方法
+ */
+ import java.util.Calendar
+    class Test{
+  public static void main(String[] args){
+      //获取Calendar类的对象rightnow
+      Calendar rightnow=Calendar.getInatance();
+      //使用getTime()方法返回时间    Mon Feb 01 17:22:12 CST 2017
+      System.out.println("当前时间是"+rightnow.getTime());
+  }
+  }
+  
+  
+  /*
+ add()方法
+ */
+ import java.util.Calendar
+    class Test{
+  public static void main(String[] args){
+      //获取Calendar类的对象rightnow
+      Calendar rightnow=Calendar.getInatance();
+     //格式化标准
+      SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+      //格式化日期
+      String today=sdf.format(rightnow.getTime());
+      System.out.println("今天是"+today);
+      //修改日期，“DATE”常量表示一个月的某一天，“-1”表示减一天,  DAY_OF_WEEK表示一周中的星期几
+      rightnow.add(Calendar.DATE,-1);
+      String yesterday=sdf.format(rightnow.getTime());
+      System.out.println("昨天是"+today);
+      //今天是2017-5-12
+      //昨天是2017-5-11
+      
+  }
+  }
+   
+     
+  /*
+    set()方法
+ */
+ import java.util.Calendar
+    class Test{
+  public static void main(String[] args){
+      //获取Calendar类的对象rightnow
+      Calendar rightnow=Calendar.getInatance();
+      //指定某年某月
+      rightnow.set(2008-11-01);
+     //格式化标准
+      SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+      //格式化后输出
+      System.out.println("设置的日期为"+sdf.format(rightnow.getTime()));
+      //设置的日期为2008-11-01
+      
+  }
+  }
+    /*
+    get()方法
+ */
+ import java.util.Calendar
+    class Test{
+  public static void main(String[] args){
+      //获取Calendar类的对象rightnow
+      Calendar rightnow=Calendar.getInatance();
+      SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+      //格式化后输出
+      System.out.println("今天是"+sdf.format(rightnow.getTime()));
+      //"get(Calendar.DAY_OF_WEEK)"表示星期几
+      System.out.println("星期"+rightnow.get(Calendar.DAY_OF_WEEK));
+      //今天是2017-5-12，星期6（实际是星期5，但外国与我们的不一样）
+      
+  }
+  } 
+  
+  
+  
