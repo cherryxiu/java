@@ -1,0 +1,59 @@
+----------------------1.SQL Server中的表达式及运算符----------------------------------
+1.条件运算符
+=,>,<,>=,<=,<>,!=
+1.逻辑运算符
+and（并且），or（或者），not（取反）
+
+-------------------------2.insert语句--------------------------------------------------
+1.一次添加一行数据[into关键字可以省略]
+use Mstanford
+insert into Tb_Student(StudentNo,StudentName,StudentAge,Country,Stutime,Tuition)
+values ('20130101','Tom',21,'美国'，'2007-09-01',2222.50)
+ 2.省略字段名 
+ insert Tb_Student
+values ('20130101','Tom',21,'美国'，'2007-09-01',2222.50)
+3.省略默认约束的字段名（结果会自动添加‘中国’）
+insert Tb_Student(StudentNo,StudentName,StudentAge,Stutime,Tuition)
+values ('20130101','Tom',21，'2007-09-01',2222.50)
+4.check约束必须在范围之内，
+主键不能重复，
+值与字段名必须相互对应，
+添加记录时，自增的列不需要显式地添加，
+在允许为null的字段中，可以直接用null，也可以直接省略字段名
+5.一次添加多行数据（字段名可以不写）
+insert  Tb_Student(StudentNo,StudentName,StudentAge,Country,Stutime,Tuition)
+select '20130101','Tom',21,'美国'，'2007-09-01',2222.50
+union
+select '20130101','Tom',21,'美国'，'2007-09-01',2222.50
+union
+select '20130101','Tom',21,'美国'，'2007-09-01',2222.50
+
+
+-----------------------3.delete/truncate语句---------------------------------------
+1.删除所有数据  
+delete from Tb_Student
+2.删除部分内容 （删除notes为“未通过”的行）
+delete from Tb_Student where Notes='未通过'
+3.删除有主，外键关联关系的删除
+右键单击“Tb_Student_Course”,选择“设计”--“关系”（在工具栏里）--在“外键关系”窗口下有“insert和update规范”，
+展开“insert和update规范”--单击“删除规则”--选择“级联”--再执行sql语句delete from Tb_Student where Sudent_No='20140321'
+4.truncate语句只能一次删除整张表的数据，所以没有where子句，但效率更高
+truncate from Tb_Student
+
+------------------------4.update语句-----------------------------------------------
+1.修改整张表的某一个字段值(将所有的年龄都改为25)
+update Tb_Student set StudentAge=25
+2.一张表修改多个字段名(将所有的年龄和开学时间都改变)
+update Tb_Student set StudentAge=25,StuTime='20140101'
+3.修改部分行数据的字段值（将学号为20130130的年龄改为25）
+update Tb_Student set StudentAge=25 where StudentNo='20130130'
+4.修改部分行数据的字段值（将学号为20130130的年龄和开学时间都改变）
+update Tb_Student set StudentAge=25，StuTime='20140101' where StudentNo='20130130'
+
+
+
+
+
+
+
+
