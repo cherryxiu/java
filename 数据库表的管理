@@ -1,0 +1,66 @@
+-----------------1.创建数据库---------------------------------
+create database Mstanford
+on  --指定主文件属性
+(
+    name = 'Mstanford', --主文件逻辑名称
+    filename = 'D:\Mstanford.mdf', -- 主文件的物理名称(路径)
+    size = 5,  --主文件初始大小
+    filegroth = 10%  --主文件增长方式
+)
+Log on  --指定日志文件属性
+(
+    name = 'Mstanford—_log', --次文件逻辑名称
+    filename = 'D:\Mstanford.ldf', -- 次文件的物理名称(路径)
+    size = 5,  --日志文件初始大小
+    filegroth = 10%  --日志文件增长方式
+    )
+
+----------------------2.SQL Server的数据类型--------------------------
+（1）数字数据类型（只包含数字）
+整数类型bigint,        int,           smallint,      tinyint,      bit(
+   -2^63-2^63-1   -2^31-2^31-1   -2^15-2^15-1       0-255      1或0，通常表示“是”或“否”
+小数类型decimal(-10^38+1-10^38-1),   numeric(与decimal类型的功能一致)
+货币类型money（-2^63-2^63-1），smallmoney（-214748.3648-214748。3647）
+（2）字符数据类型
+varchar（变长字符串，最长为8000个字符）
+char（固定长度的字符）
+text（最大长度为2^31-1个字符）
+（3）日期和时间数据类型
+datetime（1753年1月1日-9999年12月31日，精确到百分之三秒）
+smalldatetime（1900年1月1日-2079年6月6日，精确到分钟）
+（4）二进制数据类型
+binary（固定长度的二进制数据，最长长度为8000个字节）
+vbinary（可变长度的二进制数据，最长长度为8000个字节）
+
+
+-----------------------3.数据完整性--------------------------------------
+（1）实体完整性
+primary key：主键约束，identity：自增约束，unique：唯一约束
+（2）域完整性
+check：检查约束，foreign key：外键约束，default：默认值约束，not null：非空约束
+（3）引用完整性
+（4）用户自定义完整性
+
+
+-------------------------4.数据表管理--------------------------------------
+1.创建数据表
+use Mstanford
+go  --可不要
+create table Tb_Student
+(
+ StudentNo varchar(20)  identity(1,1)  primary key,  --主键约束,自增约束（从1开始，步长为1自增）
+ StudentName varchar(20) unique,  --唯一约束
+ StudentAge int not null check(StudentAge>20 and StudentAge<30),  --check约束，一般约束猎德取值范围，用'and'连接
+ Country varchar(20) default '中国',  --默认约束
+ StudentTime datetime,
+ Tuition money not null  --非空约束
+)
+
+create table Tb_Student_Course
+(
+ SCNo int identity(1,1)  primary key,
+ StudentNo varchar(20) foreign key references Tb_Student(StudentNo) not null  --外键约束，指定来源于哪张表的哪个字段
+)
+
+2.删除数据表
+drop table Mstanford
