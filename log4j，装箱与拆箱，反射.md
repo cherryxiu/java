@@ -116,7 +116,7 @@ public class Demo3 {
 			try {
       //通过Class.forName()方法获取Class对象  动态加载类
 				Class stu=Class.forName(args[0]);
-				//获取类中的所有方法，  要导包
+				//获取类中的所有方法，  要导包(获取所有方法时，使用Method[]接收)
 				Method[] methods=stu.getMethods();
 				for(int i=0;i<methods.length;i++){
 					System.out.println(methods[i].getName());
