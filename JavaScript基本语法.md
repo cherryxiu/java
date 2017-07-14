@@ -57,7 +57,7 @@
   #### 5.流程控制语句
     5.1顺序结构
     5.2选择结构
-    ```
+```JS
   <script type="text/javascript">
 	var na;
 	if (!na){//判断变量的值是否为undefined或null，可以简写成if(变量)，原本是if(typeof na=="undefined")
@@ -67,7 +67,7 @@
 
 </script>
 ```
-    ```
+ ```
     <script type="text/javascript">
 	var time=new Date();//创建Date对象
 	var hour=time.getHours();//当前小时
