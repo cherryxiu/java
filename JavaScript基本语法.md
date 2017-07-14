@@ -81,7 +81,7 @@
 </script>
 ```
 5.3循环结构
-``
+```
 <script type="text/javascript">
 	var f;//华氏
 	var c=0;//摄氏
