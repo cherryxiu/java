@@ -156,8 +156,56 @@ public class ResultSetDemo {
 	}
 }
 ```
+###### 5.PreparedStatement接口
+```java
+package OOP6;
 
+import java.sql.*;
 
+public class PraparedStatementDemo {
+	public static Connection con=null;
+	public static PreparedStatement pst=null;
+	public static ResultSet rst=null;
+	public static void main(String[] args) {
+		try {
+			con=DBManager.getCon();
+			//向表中加入数据
+			pst=con.prepareStatement("insert into student values(?,?,?)");
+			pst.setInt(1, 6);
+			pst.setString(2, "xiaosi");
+			pst.setInt(3, 12);
+			pst.execute();
+			pst.close();
+			//删除student表中name="xiu"的数据
+			pst=con.prepareStatement("delete from student where name=?");
+			pst.setString(1, "xiu");
+			pst.execute();
+			pst.close();
+			//修改student表中name="lx"的age修改为22
+			pst=con.prepareStatement("update student set age=? where name=?");
+			pst.setInt(1, 22);
+			pst.setString(2,"lx");
+			pst.execute();
+			pst.close();
+			//查询student表中年龄为12的记录
+			pst=con.prepareStatement("select * from student where age=?" );
+			pst.setInt(1, 12);
+			   //使用结果集
+			 rst=pst.executeQuery();
+			while(rst.next()){
+				System.out.println("id是：" +rst.getInt(1));
+				System.out.println("名字是：" +rst.getString("name"));
+				System.out.println("年龄是：" +rst.getInt("age"));
+				
+			}
+			pst.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}
+```
 
 
 
