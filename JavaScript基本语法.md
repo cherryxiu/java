@@ -1,6 +1,8 @@
 #### JavaScript的原理
-    JavaSript是嵌入到HTML语言中，直接通过浏览器就得以运行，通常情况下，把JavaScript称为Web脚本语言。JavaSript是一种轻型的，解
+```
+JavaSript是嵌入到HTML语言中，直接通过浏览器就得以运行，通常情况下，把JavaScript称为Web脚本语言。JavaSript是一种轻型的，解
 释性的脚本语言，是一种由浏览器解释执行的程序语言。
+```
 #### JavaSript的作用
     JavaSript脚本是从服务器端下载到客户端，然后在客户端执行的，既不占用服务器的CPU等资源，因此，通过客户端脚本，分担了服务器的任
     务，从而间接地提升了Web服务器的性能。
@@ -10,6 +12,7 @@
 ```
 <script type="text/javasrcipt" src="demo1.js"></script>
 ```
+若带有src的script标签里再度包含额外的javascript代码，则只会下载并执行外部脚本文件，嵌入的代码会被忽略。<br/>
 3.将脚本程序代码作为属性值
 ```
 <a href="javasrcipt:document.write('欢迎来到JS世界');">hello world</a>
@@ -55,9 +58,10 @@
    （2）多行注释`/*.....*/`
    
   #### 5.流程控制语句
-    5.1顺序结构
-    5.2选择结构
-```JS
+  
+   5.1顺序结构<br/>
+   5.2选择结构    
+```javascript
   <script type="text/javascript">
 	var na;
 	if (!na){//判断变量的值是否为undefined或null，可以简写成if(变量)，原本是if(typeof na=="undefined")
@@ -67,7 +71,8 @@
 
 </script>
 ```
- ```
+
+```
     <script type="text/javascript">
 	var time=new Date();//创建Date对象
 	var hour=time.getHours();//当前小时
