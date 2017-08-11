@@ -113,9 +113,9 @@ function 函数名（形式参数1，形式参数2，...形式参数n){
 #### 1.7系统函数
 `parseInt()函数`将字符串转换为整数。它从字符串开头开始解析，在第一个非整数位置停止解析并返回前面读到的所有整数。如果字符串不是以
 整数开头，将返回NaN(Not a Number：非数字值)<br/>
-"150cats"-150;   "cats"-NaN;   "6"-6;    "-6"-6;   "6.6"-6<br/>
+"150cats"-150;   "cats"-NaN;   "6"-6;    "-6"-6;   "6.6"-6(到点号为止，点算非数值)<br/>
 `parseFloat()函数`与parseInt函数类似，返回一个浮点数<br/>
-`isNaN()函数`用于判断参数是否是NaN（不是数字）
+`isNaN()函数`用于判断参数是否是NaN（不是数字）[`''(空格)`--false（空格算数字）]
 ```javascript
 <script type="text/javascript">
 	function calc() {
