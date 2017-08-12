@@ -18,14 +18,22 @@ alert方法是用来向用户弹出一个警告，或提示下一步该怎么操
 </script>
 ```
 prompt方法用于创建提示对话框，用户可以在对话框中输入信息，如密码等。
+> 1.点击确定按钮，文本框中的内容将作为函数返回值
+> 2.点击取消按钮，将返回null
 ```jvascript
 <script type="text/javascript">
 //若有两个参数时，第二参数作为输入框的默认提示
 	var name=window.prompt("请输入昵称","Liuxiu");
+	if(name!=null){
 	window.alert("welcome" +name);
+	}else{
+	window.alert("你好");
+	}
+	
 </script>
 ```
 confirm方法创建确认对话框，用来确认用户针对某一问题的答案，必须经过用户同意操作才能完成。
+> 返回值是boolean值
 ```javascript
 <script type="text/javascript">
 	var flag=window.confirm("确定删除吗？");
@@ -36,8 +44,18 @@ confirm方法创建确认对话框，用来确认用户针对某一问题的答�
 	}
 </script>
 ```
-（2）利用窗口对象的open，close方法打开，关闭窗口<br/>
+（2）利用窗口对象的open，close方法打开，关闭窗口<br/>`window.open[URL],[窗口名称],[参数字符串]`
 open方法第一个参数是新窗口的url，第二个参数是给新窗口的命名，第三个参数是设置新窗口的特征，这三个参数都可以省略。
+> URL:可选参数，在窗口中要显示网页的网址或路径。如果省略这个参数，或者它的值是空字符串，那么窗口就不显示任何文档。<br/>
+> 窗口名称：可选参数，被打开窗口的名称。<br/>
+    1.该名称由字母、数字和下划线字符组成。<br/>
+    2."_top"、"_blank"、"_self"具有特殊意义的名称。<br/>
+       _blank：在新窗口显示目标网页<br/>
+       _self：在当前窗口显示目标网页<br/>
+       _top：框架网页中在上部窗口中显示目标网页<br/>
+    3.相同 name 的窗口只能创建一个，要想创建多个窗口则 name 不能相同。<br/>
+   4.name 不能包含有空格。<br/>
+> 参数字符串：可选参数，设置窗口参数，各参数用逗号隔开。
 ```javascript
 <body>
 <script type="text/javascript">
