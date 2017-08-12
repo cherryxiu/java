@@ -64,6 +64,7 @@ open方法第一个参数是新窗口的url，第二个参数是给新窗口的�
 	var newWin;
 	window.onload=function(){
 		newWin=window.open("Lprompt.html","广告");
+//window.open('http://www.imooc.com','_blank','width=300,height=200,menubar=no,toolbar=no, status=no,scrollbars=yes')
 	}
 </script>
 <a href="javascript:newWin.close()">关闭广告</a>
