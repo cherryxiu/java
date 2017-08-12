@@ -57,7 +57,7 @@ open方法第一个参数是新窗口的url，第二个参数是给新窗口的�
    4.name 不能包含有空格。<br/>
 > 参数字符串：可选参数，设置窗口参数，各参数用逗号隔开。
 
-![image](https://github.com/panacena/mengqu/blob/master/readme/Screenshot_2016-07-10-22-17- 15_zkk.com.mengqu.png)
+![image](/img/1.jpg)
 ```javascript
 <body>
 <script type="text/javascript">
