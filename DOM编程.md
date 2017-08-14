@@ -138,7 +138,9 @@ reload方法：重新加载当前页面，相当于浏览器的刷新按钮。
 ```
 ## DOM(文档对象模型)
 #### DOM概述
-与BOM关注浏览器的整体不同，DOM(Document Object Model)只关注浏览器载入的文档。DOM把html文档看成元素，属性和文本组成的一颗倒立的树。
+与BOM关注浏览器的整体不同，DOM(Document Object Model)只关注浏览器载入的文档。DOM把html文档看成元素，属性和文本组成的一颗倒立的树。<br/>
+`<a href="http://www.imooc.com">JavaScript DOM</a>`
+![节点](/img/2.jpg)
 #### document对象
 1.常用属性<br/>
 `bgColor`页面的背景颜色<br/>
