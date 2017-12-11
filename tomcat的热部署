@@ -1,0 +1,31 @@
+Tomcat的热部署（以后就不用重启了）
+
+
+tomcat上的部署问题，有时候也是个麻烦的问题，要是不采用热部署，我们就只能每次对原来的文件做一次改动的时候就要重新部署，而每次重新部署都要关闭tomcat，部署完重起tomcat，可见这是一个多么烦人的事情。现在，我们可以采用热部署了，以后，就不用做凡人的关闭重起工作。
+
+实现方式：
+
+编辑Tomcat的conf文件下的server.xml
+
+```
+<Host name="localhost" debug="0" appBase="webapps"
+       unpackWARs="true" autoDeploy="true"
+       xmlValidation="false" xmlNamespaceAware="false">
+```
+
+在host节点内加入
+```
+   <!-- auto append ,then reload -->
+   <Context path="/myapp" docBase="myapp" debug="99" reloadable="true" />
+```
+"myapp" 为要部署的应用程序，通常在webapps目录下
+```
+<Context path="/WuLiuProject" docBase="D:\eclipse\Workspaces\WuLiuProject\WebRoot" debug="99" reloadable="true" />
+```
+
+<Context>元素的属性: 
+path:指定访问该Web应用的URL入口。 
+docBase:指定Web应用的文件路径，可以给定绝对路径，也可以给定相对于 <Host>的appBase属性的相对路径，如果Web应用采用开放目录结构，则指定Web应用的根目录，如果Web应用是个war文件，则指定war文件的路径。 
+reloadable:如果这个属性设为true，tomcat服务器在运行状态下会监视在WEB-INF/classes和WEB-INF/lib目录下class文件的改动，如果监测到有class文件被更新的，服务器会自动重新加载Web应用。 
+
+在开发阶段将reloadable属性设为true，有助于调试servlet和其它的class文件，但这样用加重服务器运行负荷，建议在Web应用的发存阶段将reloadable设为false。
