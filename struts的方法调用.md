@@ -89,7 +89,11 @@ public class UserAction {
 		<input type="submit" value="submit"/>
 	</form>
 ```
-### action的请求转发与重定向
+### struts的结果类型
+> dispatcher:请求转发至指定的jsp资源
+> chain:请求转发至指定的Action资源
+> redirect:重定向至指定的jsp资源
+> redirectAction:重定向至指定的Action资源
 #### 请求转发
 ```
 <result name="success" type="dispatcher">/index.jsp</result>
@@ -98,7 +102,7 @@ public class UserAction {
 #### 重定向
 ```
 <result name="success" type="redirectAction">
-	<param name="actionName">userManage</param>
+    <param name="actionName">userManage</param>
     <param name="method">add</param>
 </result>
 
