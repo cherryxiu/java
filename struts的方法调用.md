@@ -90,10 +90,10 @@ public class UserAction {
 	</form>
 ```
 ### struts的结果类型
-> dispatcher:请求转发至指定的jsp资源
-> chain:请求转发至指定的Action资源
-> redirect:重定向至指定的jsp资源
-> redirectAction:重定向至指定的Action资源
+> dispatcher:请求转发至指定的jsp资源<br/>
+> chain:请求转发至指定的Action资源<br/>
+> redirect:重定向至指定的jsp资源<br/>
+> redirectAction:重定向至指定的Action资源<br/>
 #### 请求转发
 ```
 <result name="success" type="dispatcher">/index.jsp</result>
