@@ -1,0 +1,27 @@
+JVM是java虚拟机（Java Virtual Machine）
+
+
+配置环境变量（安装JDK成功后）
+（1）“我的电脑”--"属性"--“高级”--“环境变量”
+（2）在“系统环境变量”中选择“新建”（若已存在选择“编辑”），
+变量名：JAVA_HOME
+变量值：D:\Program Files\Java\jdk6(安装路径)
+（3）配置PATH属性，允许系统在任何路径下识别java命令
+变量名：  PATH
+变量值：%JAVA_HOME%\bin
+(4)配置CLASSPATH属性
+变量名：CLASSPATH，指定java加载类的路径
+变量值:  .；%JAVA_HOME%\lib
+(5)测试java程序的开发环境
+#java -version
+
+
+1.编写Java源文件
+2.编译Java源文件,生成扩展名为.class的文件（在命令提示符下切换到文件所在路径，再执行命令）
+  #javac liu.java
+3.执行字节码（.class）文件
+  #java liu
+
+
+
+

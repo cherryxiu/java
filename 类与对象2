@@ -1,0 +1,65 @@
+类的成员变量：静态变量（static，通过类名或实例名访问），实例变量
+静态变量在内存中只有一个内存空间，在加载类的过程中完成静态变量的内存分配，可以直接通过类名来访问。
+实例变量中每创建一个实例，就会为实例变量分配一次内存，各个对象访问自己的变量。
+class SaticVar(){
+  //实例变量
+  int a=1；
+  //静态变量
+  static int b=1;
+}
+/**
+  静态变量与实例变量的区别 
+*/
+class  Test{
+  public static void main(String[] args){
+      //实例化一个对象
+      StaticVar s1=new StaticVar();
+      //实例变量自增
+      s1.a++;
+      //静态变量自增
+      s1.b++;
+      System.out.println("实例变量a="+a);
+      //类名直接访问
+      System.out.println("静态变量b="+StaticVar.b);
+      //实例化一个对象
+      StaticVar s2=new StaticVar();
+      //实例变量自增
+      s2.a++;
+      //静态变量自增
+      s2.b++;
+      System.out.println("实例变量a="+a);
+      //实例名直接访问
+      System.out.println("静态变量b="+S2.b);
+  
+  }
+
+}
+执行结果是：实例变量a=2
+           静态变量b=2
+           实例变量a=2
+           静态变量b=3
+           
+ 静态代码块（只在静态方法执行之前被执行一次）
+  class  Test{
+  public static void main(String[] args){
+        {
+         System.out.println("代码块");
+        }
+   static{
+       System.out.println("静态代码块");
+   }
+  
+  }
+
+}
+静态变量初始化-->静态代码块-->初始化静态方法-->初始化实例变量-->代码块-->构造方法
+
+
+
+final变量
+final double PI=3.14159
+（1）修饰静态变量，实例变量，局部变量
+（2）必须显示初始化，否则编译错误
+（3）只能被赋值一次
+（4）一般以大写字母命名，多个单词用_隔开
+final int MAX_VALUE=1000;
